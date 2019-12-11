@@ -321,7 +321,7 @@ class Loan_model extends CI_Model {
 			  ON a.id = b.borrower_loan_id
 			INNER JOIN lend_borrower c
 			  ON a.borrower_id = c.id
-			WHERE WEEK(b.payment_sched) + YEAR(b.payment_sched) = WEEK(NOW()) + YEAR(NOW())
+			  WHERE CONCAT (WEEK(b.payment_sched) , YEAR(b.payment_sched)) = CONCAT(WEEK(NOW()) , YEAR(NOW()))
 			  AND a.status = \'ACTIVE\'
 			  AND b.status = \'UNPAID\'
 			'
